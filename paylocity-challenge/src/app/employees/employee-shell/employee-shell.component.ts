@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators, FormArray } from "@angular/forms";
+import { BenefitService } from "../../../services/benefitService";
 
 @Component({
   selector: "app-employee-shell",
@@ -9,7 +10,10 @@ export class EmployeeShellComponent implements OnInit {
   employeeForm: FormGroup;
   employeeBenefitCost: string;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private benefitService: BenefitService,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit() {
     this.employeeForm = this.fb.group({
@@ -19,7 +23,13 @@ export class EmployeeShellComponent implements OnInit {
   }
 
   onFormSubmit() {
-    this.employeeBenefitCost = "I Have Submitted the Form";
+    let totalBenefitCost: number = this.benefitService.calculateBenefitCost(
+      this.employeeForm.value.employeeName,
+      this.employeeForm.value.dependents.map(
+        (dependent) => dependent.dependentName
+      )
+    );
+    this.employeeBenefitCost = `The Total Annual Benefit Cost is: ${totalBenefitCost}`;
   }
 
   addDependent() {
