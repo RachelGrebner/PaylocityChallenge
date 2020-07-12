@@ -1,0 +1,67 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "firstName": "Rachel",
+      "lastName": "Grebner"
+    },
+    {
+      "id": 2,
+      "firstName": "Andrea",
+      "lastName": "Johnstone"
+    },
+    {
+      "id": 3,
+      "firstName": "David",
+      "lastName": "Rodini"
+    }
+  ],
+  "dependents": [
+    {
+      "id": 1,
+      "employeeId": 1,
+      "dependentTypeId": 1,
+      "firstName": "Benjamin",
+      "lastName": "Grebner"
+    },
+    {
+      "id": 2,
+      "employeeId": 2,
+      "dependentTypeId": 1,
+      "firstName": "Aaron",
+      "lastName": "Johnstone"
+    },
+    {
+      "id": 3,
+      "employeeId": 2,
+      "dependentTypeId": 2,
+      "firstName": "Michael",
+      "lastName": "Johnstone"
+    },
+    {
+      "id": 4,
+      "employeeId": 2,
+      "dependentTypeId": 2,
+      "firstName": "Amanda",
+      "lastName": "Johnstone"
+    },
+    {
+      "id": 5,
+      "employeeId": 3,
+      "dependentTypeId": 1,
+      "firstName": "Laurel",
+      "lastName": "Rodini"
+    },
+    {
+      "id": 6,
+      "employeeId": 3,
+      "dependentTypeId": 2,
+      "firstName": "Jean",
+      "lastName": "Rodini"
+    }
+  ],
+  "dependentTypes": [
+    { "id": 1, "name": "spouse" },
+    { "id": 2, "name": "child" }
+  ]
+}
