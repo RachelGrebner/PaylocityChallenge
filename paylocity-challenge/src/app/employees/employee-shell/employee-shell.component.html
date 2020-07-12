@@ -1,8 +1,33 @@
 <div class="row">
-  <div class="col-md-4">
-    <app-employee-list></app-employee-list>
-  </div>
-  <div class="col-md-8">
-    <app-employee-detail></app-employee-detail>
-  </div>
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit(employeeForm.value)">
+    <div class="form-group">
+      <label>Name</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        formControlName="name"
+      />
+      <div
+        class="text-danger"
+        *ngIf="
+          employeeForm.controls['name'].invalid &&
+          (employeeForm.controls['name'].dirty ||
+            employeeForm.controls['name'].touched)
+        "
+      >
+        You must provide a name.
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn mr-4"
+      [class.btn-default]="employeeForm.invalid"
+      [class.btn-success]="employeeForm.valid"
+      [disabled]="employeeForm.invalid"
+    >
+      Calculate Benefit Cost
+    </button>
+    <div class="text-center"></div>
+  </form>
 </div>
