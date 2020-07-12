@@ -15,10 +15,17 @@ describe("benefitService", () => {
     benefitService = injector.get(BenefitService);
   });
 
-  it("should not discount employee benefit if emplyeeName begins with A", () => {
+  it("should not discount employee benefit if emplyeeName does not begin with A", () => {
     let employeeName = "Ben";
     let benefitCost = benefitService.calculateBenefitCost(employeeName, []);
 
     expect(benefitCost).toBe(1000);
+  });
+
+  it("should discount employee benefit if emplyeeName begins with A", () => {
+    let employeeName = "Adam";
+    let benefitCost = benefitService.calculateBenefitCost(employeeName, []);
+
+    expect(benefitCost).toBe(900);
   });
 });
