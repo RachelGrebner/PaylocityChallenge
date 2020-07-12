@@ -25,9 +25,16 @@ export class EmployeeShellComponent implements OnInit {
   addDependent() {
     (<FormArray>this.employeeForm.get("dependents")).push(
       this.fb.group({
-        //dependentName: ["", Validators.required],
-        dependentName: [],
+        dependentName: ["", Validators.required],
       })
+    );
+  }
+
+  dependentIsInvalid(i) {
+    return (
+      (<FormArray>this.employeeForm.get("dependents")).at(i).invalid &&
+      ((<FormArray>this.employeeForm.get("dependents")).at(i).dirty ||
+        (<FormArray>this.employeeForm.get("dependents")).at(i).touched)
     );
   }
 

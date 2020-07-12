@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <!-- <div class="form-group">
+    <div class="form-group">
       <div formArrayName="dependents">
         <div
           *ngFor="let dependent of dependents; let i = index"
@@ -35,14 +35,7 @@
             type="text"
             formControlName="dependentName"
           />
-          <div
-            class="text-danger"
-            *ngIf="
-              employeeForm.controls['dependentName'].invalid &&
-              (employeeForm.controls['dependentName'].dirty ||
-                employeeForm.controls['dependentName'].touched)
-            "
-          >
+          <div class="text-danger" *ngIf="dependentIsInvalid(i)">
             You must provide a dependent name.
           </div>
           <button (click)="removeDependent(i)" class="btn btn-dark">
@@ -54,7 +47,7 @@
       <button class="btn btn-secondary" type="button" (click)="addDependent()">
         Add Dependent
       </button>
-    </div> -->
+    </div>
 
     <div>
       <button
